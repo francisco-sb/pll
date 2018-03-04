@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+//require_once __DIR__.'/../vendor/autoload.php';
+require_once dirname(__DIR__).'/vendor/autoload.php'; 
 
 try {
     (new Dotenv\Dotenv(__DIR__.'/../'))->load();
@@ -98,5 +99,7 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
+
+$app->register('Wn\Generators\CommandsServiceProvider');
 
 return $app;
