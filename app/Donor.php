@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Donor extends Model {
     use SoftDeletes;
 
-    protected $table = 'donations';
+    protected $table = 'donation';
     protected $fillable = ['name', 'lastname', 'email', 'amount'];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
