@@ -11,6 +11,14 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+// $router->get('/', function () use ($router) {
+//     return $router->app->version();
+// });
+
+$router->get('/', function() use ($router) {
+    return view('index');
+});
+
+$router->get('/index', function() use ($router) {
+    return view('index');
 });
