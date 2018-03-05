@@ -1,0 +1,127 @@
+doctype html
+html(lang="en")
+  head
+    title Por la libre
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    //-
+      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css")
+      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
+      link(rel="stylesheet" href="/css/style.css")
+    //-
+    link(rel="stylesheet" href="/css/font-awesome.min.css")
+    link(rel="stylesheet" href="/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/css/mdb.min.css")
+    link(rel="stylesheet" href="/css/style.css")
+    
+  body
+    //-Main navigation
+    header
+      //-navbar
+      nav.navbar.navbar-expand-lg.navbar-dark.fixed-top.scrolling-navbar
+        div.container
+          //-navbar brand
+          a.navbar-brand(href="#"): img.navbar-brand.rounded-circle(src="/img/logo.jpg" alt="logo" width="40px")
+          //-Collapse button
+          button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+          //-Collapsible content
+          div#navbarSupportedContent.collapse.navbar-collapse
+            //-Links
+            ul.navbar-nav.mr-auto.smooth-scroll
+              li.nav-item
+                a.nav-link(href="#intro") Inicio
+              li.nav-item
+                a.nav-link(href="#diary") Agenda
+              li.nav-item
+                a.nav-link(href="#about-us") Conócenos
+              li.nav-item
+                a.nav-link(href="#donation") Aportar
+            //-Social icons
+            ul.navbar-nav.nav-flex-icons
+              li.nav-item
+                a.nav-link(href="https://es-la.facebook.com/psmendiguchia/"): i.fa.fa-facebook
+              li.nav-item
+                a.nav-link(href="https://twitter.com/PSMendiguchia/"): i.fa.fa-twitter
+                
+      //-Mask
+      div#intro.view.hm-black-strong
+        div.container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center
+          div.row.d-flex.justify-content-center
+            div.col-md-10.text-center
+              //-Heading
+              h2.display-3.font-bold.white-text.mb-2 ¡Vámonos por la libre!
+              //-Divider
+              hr.hr-light
+              //-Description
+              h4.white-text.my-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur.
+              button.btn.btn-warning.btn-rounded(type="button") Apóyanos con tu donación
+                i.fa.fa-flash.ml-2
+
+    block content
+    
+    //-Footer
+    footer.page-footer.center-on-small-only.unique-color-dark.pt-0
+      //-Social
+      div.primary-color
+        div.container
+          //-Grid row
+          div.row.py-4.d-flex.align-items-center
+            //-Grid column
+            div.col-md-6.col-lg-5
+                h6.mb-0.white-text.my-2 ¡Sigue nuestro trabajo en las redes sociales!
+            //-Grid colum
+            div.col-md-6.col-lg-7.text-md-right
+                //-Facebook
+                a.icons-sm.fb-ic: i.fa.fa-facebook.white-text.mr-4
+                  //-Twitter
+                a.icons-sm.fb-ic: i.fa.fa-twitter.white-text.mr-4
+        
+      //-Footer Links        
+      div.container.mt-5.mb-4.text-center.text-md-left
+        div.row.mt-3
+          //-Firts colum
+          div.col-md-3.col-lg-2.col-xl-2.mb-r
+            img.navbar-brand.rounded-circle(src="/img/logo.jpg" alt="logo-footer" style="width: 128px; no-repeat center center fixed;")
+          //-Second colum
+          div.col-md-6.col-lg-8.col-xl-7.mx-auto.mb-r
+            h6.title.font-bold
+              strong Aporta al proyecto
+            hr.red.mb-4.mt-0.d-inline-block.mx-auto(style="width: 60px;")
+            p
+              | Texto sobre el porqué donar o aportar a la causa
+              | Texto sobre el porqué donar o aportar a la causa
+              | Texto sobre el porqué donar o aportar a la causa
+              | Texto sobre el porqué donar o aportar a la causa
+          //-Third colum
+          div.col-md-3.col-lg-2.col-xl-3
+              h6.title.font-bold
+                strong Contacto
+              hr.red.mb-4.mt-0.d-inline-block.mx-auto(style="width: 60px;")
+              p: i.fa.fa-home.mr-3 Municipio, Estado.</p>
+              p: i.fa.fa-envelope.mr-3 info@example.com
+              p: i.fa.fa-phone.mr-3 (961)-0123456
+
+    //-Copyright
+    div.footer-copyright
+      div.container-fluid
+        p © 2018 Copyright: 
+          a(href="https://www.porlalibre.mx") ¡Vámonos por la libre!
+    //-
+    script(type="text/javascript" src="/js/jquery-3.2.1.js")
+    script(type="text/javascript" src="/js/popper.min.js")
+    script(type="text/javascript" src="/js/bootstrap.min.js")
+    script(type="text/javascript" src="/js/mdb.min.js")
+    //-
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js")
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
+      script(type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
+    
+    //-Carousel options
+    script.
+      $('.carousel').carousel({
+          interval: 3000
+      })      

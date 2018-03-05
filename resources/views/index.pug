@@ -1,0 +1,99 @@
+extends ./layouts/main.pug
+block content
+  main.mt-5
+    div.container
+      //-
+        Section diary
+      section#diary.text-center
+        //-
+          Heading
+        h2.mb-5.font-weight-bold Agenda
+        //-
+          Grid row
+        div.row
+          //-
+            Grid column
+          div.col-md-6
+            //-
+              Carousel
+            div#carousel-diary.carousel.slide.carousel-fade(data-ride="carousel")
+              //-
+                Indicators
+              ol.carousel-indicators
+                li.active(data-target="#carousel-diary" data-slide-to="0")
+                li(data-target="#carousel-diary" data-slide-to="1")
+                li(data-target="#carousel-diary" data-slide-to="2")
+              //-
+                Slides
+              div.carousel-inner.z-depth-1-half(role="listbox")
+                div.carousel-item
+                  img.d-block.w-100(src="/img/002.jpeg" alt="First slide")
+                div.carousel-item
+                  img.d-block.w-100(src="/img/003.jpeg" alt="Second slide")
+                div.carousel-item
+                  img.d-block.w-100(src="/img/002.jpeg" alt="Third slide")
+              //-
+                Controls
+              a.carousel-control-prev(href="#carousel-diary" role="button" data-slide="prev")
+                span.carousel-control-prev-icon(aria-hidden="true")
+                span.sr-only Anterior
+              a.carousel-control-prev(href="#carousel-diary" role="button" data-slide="next")
+                span.carousel-control-next-icon(aria-hidden="true")
+                span.sr-only Siguiente
+          div.col-md-6
+            h4.pb-1 Nuestro recorrido
+            p
+              | Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit 
+              | quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, 
+              | omnis dolor repellendus et aut officiis debitis aut rerum.
+            p
+              | Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit 
+              | quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, 
+              | omnis dolor repellendus et aut officiis debitis aut rerum.
+      
+      hr.my-5
+      //-
+        Section about-us
+      section#about-us.text-center
+        //-
+          Heading
+        h2.mb-5.font-weight-bold Conócenos
+        //-
+          Grid row
+        div.row
+          //-
+            Grid column
+          div.col-lg-4.col-md-12.mb-4
+            div.view.overlay.hm-white-slight.z-depth-1-half
+              img.img-fluid(src="https://pbs.twimg.com/media/DPWJIzMVAAEVl-h.jpg:large" alt="")
+              div.mask
+            h4.my-4.font-weight-bold Título
+            p.grey-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
+              | assumenda deleniti hic.
+          //-
+            Grid column
+          div.col-lg-4.col-md-6.mb-4
+            div.view.overlay.hm-white-slight.z-depth-1-half
+              img.img-fluid(src="https://pbs.twimg.com/media/DTltiEvW0AEoGaI.jpg:large" alt="")
+              div.mask
+            h4.my-4.font-weight-bold Título
+            p.grey-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
+              | assumenda deleniti hic.
+              
+          //-
+            Grid column
+          div.col-lg-4.col-md-6.mb-4
+            div.view.overlay.hm-white-slight.z-depth-1-half
+              img.img-fluid(src="https://pbs.twimg.com/media/DUGpzT1VoAApj_7.jpg:large" alt="")
+              div.mask
+            h4.my-4.font-weight-bold Título
+            p.grey-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
+              | assumenda deleniti hic.
+
+      hr.my-5
+      
+      div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
+        a.btn-floating.btn-large.red(href="#intro"): i.fa.fa-arrow-up
