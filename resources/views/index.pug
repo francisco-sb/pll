@@ -16,30 +16,28 @@ block content
           div.col-md-6
             //-
               Carousel
-            div#carousel-diary.carousel.slide.carousel-fade(data-ride="carousel")
+            div#carousel-diary.carousel.slide(data-ride="carousel") 
               //-
                 Indicators
-              ol.carousel-indicators
+              ul.carousel-indicators
                 li.active(data-target="#carousel-diary" data-slide-to="0")
                 li(data-target="#carousel-diary" data-slide-to="1")
                 li(data-target="#carousel-diary" data-slide-to="2")
               //-
                 Slides
               div.carousel-inner.z-depth-1-half(role="listbox")
+                div.carousel-item.active
+                  img.d-block.w-100(src="/img/005.jpeg" alt="First slide")
                 div.carousel-item
-                  img.d-block.w-100(src="/img/002.jpeg" alt="First slide")
+                  img.d-block.w-100(src="/img/006.jpeg" alt="Second slide")
                 div.carousel-item
-                  img.d-block.w-100(src="/img/003.jpeg" alt="Second slide")
-                div.carousel-item
-                  img.d-block.w-100(src="/img/002.jpeg" alt="Third slide")
+                  img.d-block.w-100(src="/img/007.jpeg" alt="Third slide")
               //-
                 Controls
               a.carousel-control-prev(href="#carousel-diary" role="button" data-slide="prev")
-                span.carousel-control-prev-icon(aria-hidden="true")
-                span.sr-only Anterior
-              a.carousel-control-prev(href="#carousel-diary" role="button" data-slide="next")
-                span.carousel-control-next-icon(aria-hidden="true")
-                span.sr-only Siguiente
+                span.carousel-control-prev-icon
+              a.carousel-control-next(href="#carousel-diary" role="button" data-slide="next")
+                span.carousel-control-next-icon
           div.col-md-6
             h4.pb-1 Nuestro recorrido
             p
@@ -96,4 +94,4 @@ block content
       hr.my-5
       
       div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
-        a.btn-floating.btn-large.red(href="#intro"): i.fa.fa-arrow-up
+        a.btn-floating.btn-large.red.waves-effect.waves-light(href="#intro"): i.fa.fa-arrow-up
