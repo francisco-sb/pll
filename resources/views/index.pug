@@ -2,29 +2,22 @@ extends ./layouts/main.pug
 block content
   main.mt-5
     div.container
-      //-
-        Section diary
+      //-Section diary
       section#diary.text-center
-        //-
-          Heading
+        //-Heading
         h2.mb-5.font-weight-bold Agenda
-        //-
-          Grid row
+        //-Grid row
         div.row
-          //-
-            Grid column
+          //-Grid column
           div.col-md-6
-            //-
-              Carousel
+            //-Carousel
             div#carousel-diary.carousel.slide(data-ride="carousel") 
-              //-
-                Indicators
+              //-Indicators
               ul.carousel-indicators
                 li.active(data-target="#carousel-diary" data-slide-to="0")
                 li(data-target="#carousel-diary" data-slide-to="1")
                 li(data-target="#carousel-diary" data-slide-to="2")
-              //-
-                Slides
+              //-Slides
               div.carousel-inner.z-depth-1-half(role="listbox")
                 div.carousel-item.active
                   img.d-block.w-100(src="/img/005.jpeg" alt="First slide")
@@ -32,12 +25,11 @@ block content
                   img.d-block.w-100(src="/img/006.jpeg" alt="Second slide")
                 div.carousel-item
                   img.d-block.w-100(src="/img/007.jpeg" alt="Third slide")
-              //-
-                Controls
+              //-Controls
               a.carousel-control-prev(href="#carousel-diary" role="button" data-slide="prev")
-                span.carousel-control-prev-icon
+                img(src="/img/svg/ic_keyboard_arrow_left_black_24px.svg")
               a.carousel-control-next(href="#carousel-diary" role="button" data-slide="next")
-                span.carousel-control-next-icon
+                img(src="/img/svg/ic_keyboard_arrow_right_black_24px.svg")
           div.col-md-6
             h4.pb-1 Nuestro recorrido
             p
@@ -50,17 +42,20 @@ block content
               | omnis dolor repellendus et aut officiis debitis aut rerum.
       
       hr.my-5
-      //-
-        Section about-us
+      //-Section about-us
       section#about-us.text-center
-        //-
-          Heading
+        //-Heading
         h2.mb-5.font-weight-bold Conócenos
-        //-
-          Grid row
+        //-Grid row
+        div.row.d-flex.justify-content-center.mb-4
+          //-Grid column
+          div.col-md-8
+            p.grey-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate hic provident nulla repellat 
+              | facere esse molestiae ipsa labore porro minima quam quaerat rem, natus repudiandae debitis est sit pariatur.
+        //-Grid row
         div.row
-          //-
-            Grid column
+          //-Grid column
           div.col-lg-4.col-md-12.mb-4
             div.view.overlay.hm-white-slight.z-depth-1-half
               img.img-fluid(src="https://pbs.twimg.com/media/DPWJIzMVAAEVl-h.jpg:large" alt="")
@@ -69,8 +64,7 @@ block content
             p.grey-text
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
               | assumenda deleniti hic.
-          //-
-            Grid column
+          //-Grid column
           div.col-lg-4.col-md-6.mb-4
             div.view.overlay.hm-white-slight.z-depth-1-half
               img.img-fluid(src="https://pbs.twimg.com/media/DTltiEvW0AEoGaI.jpg:large" alt="")
@@ -80,8 +74,7 @@ block content
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
               | assumenda deleniti hic.
               
-          //-
-            Grid column
+          //-Grid column
           div.col-lg-4.col-md-6.mb-4
             div.view.overlay.hm-white-slight.z-depth-1-half
               img.img-fluid(src="https://pbs.twimg.com/media/DUGpzT1VoAApj_7.jpg:large" alt="")
