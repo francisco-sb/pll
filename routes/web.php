@@ -22,3 +22,12 @@ $router->get('/', function() use ($router) {
 $router->get('/index', function() use ($router) {
     return view('index');
 });
+
+/**
+ * Routes for resource pll
+ */
+$router->get('pll', 'PllsController@all');
+$router->get('pll/{id}', 'PllsController@get');
+$router->post('pll', 'PllsController@add');
+$router->put('pll/{id}', 'PllsController@put');
+$router->delete('pll/{id}', 'PllsController@remove');
