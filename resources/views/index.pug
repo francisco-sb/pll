@@ -56,7 +56,7 @@ block content
         //-Grid row
         div.row
           //-Grid column
-          div.col-lg-4.col-md-12.mb-4
+          div.col-lg-4.col-md-4.mb-4
             div.view.overlay.hm-white-slight.z-depth-1-half
               img.img-fluid(src="https://pbs.twimg.com/media/DPWJIzMVAAEVl-h.jpg:large" alt="")
               div.mask
@@ -65,7 +65,7 @@ block content
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
               | assumenda deleniti hic.
           //-Grid column
-          div.col-lg-4.col-md-6.mb-4
+          div.col-lg-4.col-md-4.mb-4
             div.view.overlay.hm-white-slight.z-depth-1-half
               img.img-fluid(src="https://pbs.twimg.com/media/DTltiEvW0AEoGaI.jpg:large" alt="")
               div.mask
@@ -75,7 +75,7 @@ block content
               | assumenda deleniti hic.
               
           //-Grid column
-          div.col-lg-4.col-md-6.mb-4
+          div.col-lg-4.col-md-4.mb-4
             div.view.overlay.hm-white-slight.z-depth-1-half
               img.img-fluid(src="https://pbs.twimg.com/media/DUGpzT1VoAApj_7.jpg:large" alt="")
               div.mask
@@ -85,6 +85,102 @@ block content
               | assumenda deleniti hic.
 
       hr.my-5
+    
+      //-Section donation
+      section#donation
+        //-Heading
+        h2.mb-5.font-weight-bold.text-center Aporta a la causa
+        div.row.justify-content-center.mb-4
+          //-Card
+          div.container-fluid.card
+            //-Card body
+            div.card-body
+              //-Material form
+              form#payment-form(action="#" method="POST")
+                input#token_id(type="hidden" name="token_id")
+                div.row.justify-content-start
+                  div.col-md-4.grey-text(style="border-right: 1px solid;")
+                    p.h5.py-4.grey-text Tarjetas de crédito
+                    img.img-fluid(src="/img/cards1.png")
+                  div.col-md-8
+                    p.h6.py-4.grey-text Tarjetas de débito
+                    img.img-fluid(src="/img/cards2.png")
+                div.row(style="margin-top: 20px")
+                  div.col-md-6
+                    p.h4.text-center.py-4 Datos personales
+                    //-input name
+                    div.md-form.form-group(required)
+                      i.fa.fa-user.prefix.grey-text
+                      input#name.form-control(type="text" name="name")
+                      label.font-weight-light(for="name") Nombre                      
+                    //-input lastname
+                    div.md-form.form-group(required)
+                      i.fa.fa-user.prefix.grey-text
+                      input#lastname.form-control(type="text" name="lastname")
+                      label.font-weight-light(for="name") Apellido
+                        
+                    //-input email
+                    div.md-form.form-group(required)
+                      i.fa.fa-envelope.prefix.grey-text
+                      input#email.form-control(type="email" name="email")
+                      label.font-weight-light(for="email") Correo electrónico
+                  div.col-md-6
+                    p.h5.text-center.py-4 Datos de la tarjeta
+                    div.row
+                      div.col-md-8
+                        //-input owner
+                        div.md-form.form-group(required)
+                          i.fa.fa-user.prefix.grey-text
+                          input#holder_name.form-control(type="text")
+                          label.font-weight-light(for="holder_name" data-openpay-card="holder_name") Nombre del titular
+                      div.col-md-4
+                        //-input cvv2                        
+                        div.md-form.form-group(required)
+                          i.fa.fa-credit-card-alt.prefix.grey-text
+                          input#cvv2.form-control(type="text" autocomplete="off" data-openpay-card="cvv2")
+                          label.font-weight-light(for="cvv2") CVV
+                    //-input card_number
+                    div.md-form.form-group(required)
+                      i.fa.fa-credit-card-alt.prefix.grey-text
+                      input#card_number.form-control(type="text" autocomplete="off" data-openpay-card="card_number")
+                      label.font-weight-light(for="card_number") Número de tarjeta
+                    div.row
+                      div.col-md-4
+                        //-input expiration_month  
+                        div.md-form.form-group(required)
+                          i.fa.fa-calendar.prefix.grey-text
+                          input#expiration_month.form-control(type="text" aria-describedby="expiration_help" data-openpay-card="expiration_month")
+                          label.font-weight-light(for="expiration_month") MM
+                          small#expiration_help.form-text.text-muted Fecha de expiración
+                      div.col-md-3
+                        //-input expiration_year
+                        div.md-form.form-group(required)
+                          input#expiration_year.form-control(type="text" data-openpay-card="expiration_year")
+                          label.font-weight-light(for="expiration_year") AA
+                div.row(style="margin-top: 20px;")
+                  div.col-md-8
+                  div.col-md-4.grey-text.text-md-right
+                    p.grey-text Transacciones realizadas vía:
+                    img.img-fluid(src="/img/openpay.png")
+                div.text-center.py-4.mt-3
+                  button.btn.btn-warning(type="submit") Donar
+                    i.fa.fa-flash.ml-2
+                    
+      hr.my-5
       
       div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
         a.btn-floating.btn-large.red.waves-effect.waves-light(href="#intro"): i.fa.fa-arrow-up
+      
+      //-Modal
+      div#donation-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="donation-modal-label" aria-hidden="true")
+        div.modal-dialog.modal-lg(role="document")
+          div.modal-content
+            div.modal-header
+              h4#donation-modal-label.modal-title Modal title
+              button.close(type="button" data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true") &times;
+            div.modal-body
+              
+            div.modal-footer
+              button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+              button.btn.btn-primary(type="button") Save changes
