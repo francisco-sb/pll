@@ -10,7 +10,6 @@
 | is ready to receive HTTP / Console requests from the environment.
 |
 */
-//require __DIR__.'/../bootstrap/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 
 /*

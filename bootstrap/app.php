@@ -1,6 +1,5 @@
 <?php
 
-//require_once __DIR__.'/../vendor/autoload.php';
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
 try {
@@ -102,5 +101,6 @@ $app->router->group([
 
 $app->register('Wn\Generators\CommandsServiceProvider');
 $app->register(Bkwld\LaravelPug\ServiceProvider::class);
+
 
 return $app;
