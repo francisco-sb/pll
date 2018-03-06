@@ -16,7 +16,8 @@
 // });
 
 $router->get('/', function() use ($router) {
-    return view('index');
+    return view('index', ['status' => 0,
+                          'message' => '']);
 });
 
 /**
