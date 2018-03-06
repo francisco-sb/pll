@@ -40,13 +40,18 @@ class PllsController extends Controller {
             Openpay::setProductionMode(false);
             $openpay = Openpay::getInstance('mnfv5dmxgwgvxdjstxng', 'sk_70f2c7afaa854d4bb9b160653fd4c263');
 
+            $customer = array(
+                'name' => $request->name,
+                'last_name' => $request->lastname,
+                'email' => $request->email);
+
             $chargeData = array(
                 'method' => 'card',
                 'source_id' => $request->token_id,
                 'amount' => (float)$request->amount,
-                'description' => "Pago del donante: ".$request->name,
-                'device_session_id' => $request->deviceIdHiddenFieldName//,
-                //'customer' => $_POST[$customer]
+                'description' => "Donación por la persona: ".$request->name,
+                'device_session_id' => $request->deviceIdHiddenFieldName,
+                'customer' => $customer
                 );
 
             $charge = $openpay->charges->create($chargeData);
