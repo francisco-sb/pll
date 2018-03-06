@@ -19,10 +19,6 @@ $router->get('/', function() use ($router) {
     return view('index');
 });
 
-$router->get('/index', function() use ($router) {
-    return view('index');
-});
-
 /**
  * Routes for resource pll
  */

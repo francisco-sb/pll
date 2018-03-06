@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+//use Bkwld\LaravelPug\ExceptionHandlerTrait;
 use Exception;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -11,6 +12,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
 {
+    //use ExceptionHandlerTrait;
     /**
      * A list of the exception types that should not be reported.
      *
@@ -45,6 +47,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        //return $this->filterErrorResponse($e, $request, parent::render($request, $e));
         return parent::render($request, $e);
     }
 }
