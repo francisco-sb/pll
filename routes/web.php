@@ -22,8 +22,8 @@ $router->get('/', function() use ($router) {
 /**
  * Routes for resource pll
  */
-$router->get('pll', 'PllsController@all');
-$router->get('pll/{id}', 'PllsController@get');
+// $router->get('pll', 'PllsController@all');
+// $router->get('pll/{id}', 'PllsController@get');
 $router->post('pll', 'PllsController@add');
-$router->put('pll/{id}', 'PllsController@put');
-$router->delete('pll/{id}', 'PllsController@remove');
+// $router->put('pll/{id}', 'PllsController@put');
+// $router->delete('pll/{id}', 'PllsController@remove');
