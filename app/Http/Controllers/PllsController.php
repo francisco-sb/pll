@@ -3,6 +3,7 @@
 use App\Donor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Openpay;
 
 class PllsController extends Controller {
 
@@ -18,23 +19,6 @@ class PllsController extends Controller {
 
     public function add(Request $request)
     {
-        // \Stripe\Stripe::setApiKey ( 'sk_test_yourSecretkey' );
-        // try
-        // {
-        //     \Stripe\Charge::create (array(
-        //             "amount" => $request->amount,
-        //             "currency" => "mx", //Verificar la doc
-        //             "source" => $request->input ($request->stripeToken), // obtained with Stripe.js
-        //             "description" => "Pago del donante".$request->name.' '.$request->lastname
-        //     ) );
-        //
-        //     //Si se crea correctamente el pago, se genera el registro en l BD
-        //     $donor = new Donor;
-        //     $donor->name = $request->name;
-        //     $donor->lastname = $request->lastname;
-        //     $donor->email = $request->email;
-        //     $donor->amount = $request->amount;
-        //     $donor->save();
         try
         {
             Openpay::setProductionMode(false);
@@ -48,20 +32,21 @@ class PllsController extends Controller {
             $chargeData = array(
                 'method' => 'card',
                 'source_id' => $request->token_id,
-                'amount' => (float)$request->amount,
+                // 'amount' => (float)$request->amount, --Poner el amount
+                'amount' => (float)100,
                 'description' => "Donación por la persona: ".$request->name,
                 'device_session_id' => $request->deviceIdHiddenFieldName,
                 'customer' => $customer
                 );
 
             $charge = $openpay->charges->create($chargeData);
-
-            // $donor = new Donor;
-            // $donor->name = $request->name;
-            // $donor->lastname = $request->lastname;
-            // $donor->email = $request->email;
-            // $donor->amount = $request->amount;
-            // $donor->save();
+            //Si no existe error, guardamos el donante.
+            $donor = new Donor;
+            $donor->name = $request->name;
+            $donor->lastname = $request->lastname;
+            $donor->email = $request->email;
+            $donor->amount = (float) 0;//$request->amount; --Poner el amount
+            $donor->save();
         } catch (OpenpayApiTransactionError $e) {
         	error_log('ERROR on the transaction: ' . $e->getMessage() .
         	      ' [error code: ' . $e->getErrorCode() .

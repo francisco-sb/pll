@@ -143,6 +143,7 @@ html(lang="en")
             var token_id = response.data.id;
             $('#token_id').val(token_id);
             $('#payment-form').submit();
+            $('#payment-form')[0].reset();
           };
 
           var error_callbak = function(response) {
