@@ -47,40 +47,61 @@ class PllsController extends Controller {
             $donor->email = $request->email;
             $donor->amount = (float) 0;//$request->amount; --Poner el amount
             $donor->save();
-        } catch (OpenpayApiTransactionError $e) {
-        	error_log('ERROR on the transaction: ' . $e->getMessage() .
-        	      ' [error code: ' . $e->getErrorCode() .
-        	      ', error category: ' . $e->getCategory() .
-        	      ', HTTP code: '. $e->getHttpCode() .
-        	      ', request ID: ' . $e->getRequestId() . ']', 0);
+        } catch (Exception $e) {
 
-        } catch (OpenpayApiRequestError $e) {
-        	error_log('ERROR on the request: ' . $e->getMessage(), 0);
-
-        } catch (OpenpayApiConnectionError $e) {
-        	error_log('ERROR while connecting to the API: ' . $e->getMessage(), 0);
-
-        } catch (OpenpayApiAuthError $e) {
-        	error_log('ERROR on the authentication: ' . $e->getMessage(), 0);
-
-        } catch (OpenpayApiError $e) {
-        	error_log('ERROR on the API: ' . $e->getMessage(), 0);
-
-        } catch (Exception $e) { 
             //En este se implementará todos los tipos de excepciones y eliminas las otras de arriba
             switch ($$e->getErrorCode()) {
                 case '1000': //Es de la lista de errores, digo que aqui agreges solo los de las transacciones
-                    Session::flash('message', 'Ha ocurrido un error en el servidor de OpenPay');
+                    $message = 'Ha ocurrido un error en el servidor de OpenPay';
+                    break;
+                case '502':
+                    $message = 'El servicio de pago no se encuentra disponible por el momento, por favor intenta más tarde'
+                    break;
+                case '3001':
+                    $message = 'Tu tarjeta fue declinada'
+                    break;
+                case '3002':
+                    $message = 'Tu tarjeta ha expirado'
+                    break;
+                case '3003':
+                    $message = 'Tu tarjeta no cuenta con los suficientes fondos'
+                    break;
+                case '3004':
+                    $message = 'Procesaste un cargo con una tarjeta reportada como robada'
+                    break;
+                case '3005':
+                    $message = 'Tu tarjeta fue rechazada por el sistema antifraudes'
+                    break;
+                case '3007':
+                    $message = 'Tu tarjeta fue rechazada'
+                    break;
+                case '3008':
+                    $message = 'Tu tarjeta no soporta transacciones online'
+                    break;
+                case '3009':
+                    $message = 'Procesaste un cargo con una tarjeta reportada como perdida'
+                    break;
+                case '3010':
+                    $message = 'Tarjeta bloqueada por el banco'
+                    break;
+                case '3002':
+                    $message = 'Tarjeta declinada'
+                    break;
+                case '3012':
+                    $message = 'Se requiere autorización del banco'
                     break;
                 default:
-                    # code... //Aqui puedes poner los errores generales, no importa si el mensaje si esta en ingles
+                    $message = 'Lo sentimos, ocurrió un error con tu transacción...'
                     break;
             }
-            return Redirect::to('view_de_error');
+
+            return view('index', ['status' => false,
+                                  'message' => $message]);
         }
 
         //retorna la vista de gratitud
-        return view('index');
+        return view('index', ['status' => true,
+                              'message' => '¡Gracias por tu donativo!']);
     }
 
     public function put(Request $request)
