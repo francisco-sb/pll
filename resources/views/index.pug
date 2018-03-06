@@ -96,8 +96,9 @@ block content
             //-Card body
             div.card-body
               //-Material form
-              form#payment-form(action="#" method="POST")
+              form#payment-form(action="/pll" method="POST")
                 input#token_id(type="hidden" name="token_id")
+                input#token_id(type="hidden", name="_csrf", value=_csrf)
                 div.row.justify-content-start
                   div.col-md-4.grey-text(style="border-right: 1px solid;")
                     p.h5.py-4.grey-text Tarjetas de crédito
@@ -165,7 +166,6 @@ block content
                 div.text-center.py-4.mt-3
                   button#pay-button.btn.btn-warning(type="submit") Donar
                     i.fa.fa-flash.ml-2
-                    
       hr.my-5
       
       div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
