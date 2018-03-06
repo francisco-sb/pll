@@ -66,8 +66,17 @@ class PllsController extends Controller {
         } catch (OpenpayApiError $e) {
         	error_log('ERROR on the API: ' . $e->getMessage(), 0);
 
-        } catch (Exception $e) {
-        	error_log('Error on the script: ' . $e->getMessage(), 0);
+        } catch (Exception $e) { 
+            //En este se implementará todos los tipos de excepciones y eliminas las otras de arriba
+            switch ($$e->getErrorCode()) {
+                case '1000': //Es de la lista de errores, digo que aqui agreges solo los de las transacciones
+                    Session::flash('message', 'Ha ocurrido un error en el servidor de OpenPay');
+                    break;
+                default:
+                    # code... //Aqui puedes poner los errores generales, no importa si el mensaje si esta en ingles
+                    break;
+            }
+            return Redirect::to('view_de_error');
         }
 
         //retorna la vista de gratitud
