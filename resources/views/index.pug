@@ -85,27 +85,30 @@ block content
               | assumenda deleniti hic.
 
       hr.my-5
-    
-      //-Section donation
-      section#donation
-        //-Heading
-        h2.mb-5.font-weight-bold.text-center Aporta a la causa
-        div.row.justify-content-center.mb-4
-          //-Card
-          div.container-fluid.card
-            //-Card body
-            div.card-body
+      
+      div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
+        a.btn-floating.btn-large.red.waves-effect.waves-light(href="#intro"): i.fa.fa-arrow-up
+      
+      //-Modal
+      div#donation-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="donation-modal-label" aria-hidden="true")
+        div.modal-dialog.modal-lg(role="document")
+          div.modal-content
+            div.modal-header
+              //-h4#donation-modal-label.modal-title Modal title
+              div.row.justify-content-start
+                div.col-md-4.grey-text(style="border-right: 1px solid;")
+                  p.h5.py-4.grey-text Tarjetas de crédito
+                  img.img-fluid(src="/img/cards1.png")
+                div.col-md-8
+                  p.h6.py-4.grey-text Tarjetas de débito
+                  img.img-fluid(src="/img/cards2.png")
+              button.close(type="button" data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true") &times;
+            div.modal-body
               //-Material form
               form#payment-form(action="/pll" method="POST")
                 input#token_id(type="hidden" name="token_id")
-                div.row.justify-content-start
-                  div.col-md-4.grey-text(style="border-right: 1px solid;")
-                    p.h5.py-4.grey-text Tarjetas de crédito
-                    img.img-fluid(src="/img/cards1.png")
-                  div.col-md-8
-                    p.h6.py-4.grey-text Tarjetas de débito
-                    img.img-fluid(src="/img/cards2.png")
-                div.row(style="margin-top: 20px")
+                div.row
                   div.col-md-6
                     p.h4.text-center.py-4 Datos personales
                     //-input name
@@ -163,23 +166,6 @@ block content
                     p.grey-text Transacciones realizadas vía:
                     img.img-fluid(src="/img/openpay.png")
                 div.text-center.py-4.mt-3
-                  button#pay-button.btn.btn-warning(type="submit") Donar
-                    i.fa.fa-flash.ml-2
-      hr.my-5
-      
-      div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
-        a.btn-floating.btn-large.red.waves-effect.waves-light(href="#intro"): i.fa.fa-arrow-up
-      
-      //-Modal
-      div#donation-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="donation-modal-label" aria-hidden="true")
-        div.modal-dialog.modal-lg(role="document")
-          div.modal-content
-            div.modal-header
-              h4#donation-modal-label.modal-title Modal title
-              button.close(type="button" data-dismiss="modal" aria-label="Close")
-                span(aria-hidden="true") &times;
-            div.modal-body
-              
             div.modal-footer
               button.btn.btn-secondary(type="button" data-dismiss="modal") Close
-              button.btn.btn-primary(type="button") Save changes
+              button#pay-button.btn.btn-warning(type="submit") Donar

@@ -28,7 +28,7 @@ html(lang="en")
       nav.navbar.navbar-expand-lg.navbar-dark.secondary-color.fixed-top.scrolling-navbar
         div.container
           //-navbar brand
-          a.navbar-brand(href="#"): img.navbar-brand.rounded-circle(src="/img/logo.jpg" alt="logo" width="40px")
+          a.navbar-brand(href="/"): img.navbar-brand.rounded-circle(src="/img/logo.jpg" alt="logo" width="40px")
           //-Collapse button
           button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon
@@ -43,14 +43,14 @@ html(lang="en")
               li.nav-item
                 a.nav-link(href="#about-us") Conócenos
               li.nav-item
-                a.nav-link(href="#donation") Aportar
+                a.nav-link(data-toggle="modal" data-target="#donation-modal") Aportar
             //-Social icons
             ul.navbar-nav.nav-flex-icons
               li.nav-item
                 a.nav-link(href="https://es-la.facebook.com/psmendiguchia/"): i.fa.fa-facebook
               li.nav-item
                 a.nav-link(href="https://twitter.com/PSMendiguchia/"): i.fa.fa-twitter
-                
+            
       //-Mask
       div#intro.view.hm-black-strong
         div.container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center
@@ -64,9 +64,9 @@ html(lang="en")
               h4.white-text.my-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur.
               button.btn.btn-warning.btn-rounded(type="button" data-toggle="modal" data-target="#donation-modal") Apóyanos con tu donación
                 i.fa.fa-flash.ml-2
-
-    block content
     
+    block content
+        
     //-Footer
     footer.page-footer.center-on-small-only.unique-color-dark.pt-0
       //-Social
