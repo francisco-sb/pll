@@ -106,16 +106,17 @@ block content
                 span(aria-hidden="true") &times;
             div.modal-body
               //-Material form
-              form#payment-form(action="/pll" method="POST")
+              form#payment-form.needs-validation(action="/pll" method="POST")
                 input#token_id(type="hidden" name="token_id")
                 div.row
                   div.col-md-6
                     p.h4.text-center.py-4 Datos personales
                     //-input name
-                    div.md-form.form-group(required)
+                    div.md-form.form-group
                       i.fa.fa-user.prefix.grey-text
                       input#name.form-control(type="text" name="name")
-                      label.font-weight-light(for="name") Nombre                      
+                      label.font-weight-light(for="name") Nombre
+                      div.invalid-feedback Ingresa tu nombre
                     //-input lastname
                     div.md-form.form-group(required)
                       i.fa.fa-user.prefix.grey-text

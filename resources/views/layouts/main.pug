@@ -16,8 +16,9 @@ html(lang="en")
     link(rel="stylesheet" href="/css/bootstrap.min.css")
     link(rel="stylesheet" href="/css/mdb.min.css")
     link(rel="stylesheet" href="/css/style.css")
-      
-    script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+    //-  
+      script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+    script(type="text/javascript" src="/js/jquery-3.2.1.js")
     script(type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js")
     script(type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js")
     
@@ -114,7 +115,7 @@ html(lang="en")
         div.container-fluid.text-center © 2018 Copyright: 
             a(href="https://www.porlalibre.mx") ¡Vámonos por la libre!
     //-
-    script(type="text/javascript" src="/js/jquery-3.2.1.js")
+      script(type="text/javascript" src="/js/jquery-3.2.1.js")
     script(type="text/javascript" src="/js/popper.min.js")
     script(type="text/javascript" src="/js/bootstrap.min.js")
     script(type="text/javascript" src="/js/mdb.min.js")
@@ -124,6 +125,26 @@ html(lang="en")
       script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
       script(type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
       script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
+    //-validatons, estoy validando sólo el campo de nombre
+    script.
+      (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                      if (form.checkValidity() === false) {
+                          event.preventDefault();
+                          event.stopPropagation();
+                      }
+                      form.classList.add('was-validated');
+                  }, false);
+              });
+          }, false);
+      })();
+    
     //-openpay
     script.
       $(document).ready(function() {
