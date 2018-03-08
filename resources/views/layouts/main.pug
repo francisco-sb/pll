@@ -5,12 +5,6 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
-    //-
-      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css")
-      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
-      link(rel="stylesheet" href="/css/style.css")
-    //-
     
     link(rel="stylesheet" href="/css/font-awesome.min.css")
     link(rel="stylesheet" href="/css/bootstrap.min.css")
@@ -125,11 +119,6 @@ html(lang="en")
     script(type="text/javascript" src="/js/bootstrap.min.js")
     script(type="text/javascript" src="/js/mdb.min.js")
     
-    //-
-      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js")
-      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
-      script(type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
-      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
     //-validatons, estoy validando sólo el campo de nombre
     script.
       (function() {
@@ -171,33 +160,58 @@ html(lang="en")
 
             var paymentForm = $("#payment-form");
             var paymentformData = paymentForm.serialize();
+            $('#name_error').html( "" );
+            $('#lastname_error').html( "" );
+            $('#email_error').html( "" );
+            
             $('#holder_name_error').html( "" );
-            //Agregar los otros para los demás campos
-
+            $('#cvv2_error').html( "" );
+            $('#card_number_error').html( "" );
+            $('#expiration_month_error').html( "" );
+            $('#expiration_year_error').html( "" );
+            
             $.ajax({
-              url: "/pll",
-              type: "POST",
-              data: paymentformData,
-              success: function(data) {
-                console.log(data);
-                if(data.errors) {
-                    if(data.errors.name)
-                        $( '#holder_name_error' ).html(data.errors.name[0]);
-
-                    //poner los otros if de los demas campos
+                url: "/pll",
+                type: "POST",
+                data: paymentformData,
+                success: function(data) {
+                    console.log(data);
+                    if(data.errors_form) {
+                        if(data.errors_form.name)
+                            $( '#name_error' ).html(data.errors_form.name[0]);
+                        if(data.errors_form.lastname)
+                            $( '#lastname_error' ).html(data.errors_form.lastname[0]);
+                        if(data.errors_form.email)
+                            $( '#email_error' ).html(data.errors_form.email[0]);
+                        if(data.errors_form.holder_name)
+                            $( '#holder_name_error' ).html(data.errors_form.holder_name[0]);
+                        if(data.errors_form.cvv2)
+                            $( '#cvv2_error' ).html(data.errors_form.cvv2[0]);
+                        if(data.errors_form.card_number)
+                            $( '#card_number_error' ).html(data.errors_form.card_number[0]);
+                        if(data.errors_form.expiration_month)
+                            $( '#expiration_month_error' ).html(data.errors_form.expiration_month[0]);
+                        if(data.errors_form.expiration_year)
+                            $( '#expiration_year_error' ).html(data.errors_form.expiration_year[0]);
+                    }
+                    if(data.success) {
+                        alertify.success(data.success); //El mensaje de correcto
+                        $('#payment-form')[0].reset(); 
+                        $('#donation-modal').modal('hide');
+                    }           
+                },
+                error: function(data) {
+                    console.log(data);
+                    //alertify.error(data.error);
+                    //$('#payment-form')[0].reset(); 
+                    //$('#donation-modal').modal('hide');
                 }
-                 if(data.success) {
-                   alertify.success(data.success); //El mensaje de correcto
-                    $('#payment-form')[0].reset(); 
-                    $('#donation-modal').modal('hide');
-                 }           
-              }
             });
           };
 
           var error_callbak = function(response) {
               var desc = response.data.description != undefined ? response.data.description : response.message;
-              alert("ERROR [" + response.status + "] " + desc);
+              alertify.error("ERROR [" + response.status + "]" + desc );
               $("#pay-button").prop("disabled", false);
           };
 
