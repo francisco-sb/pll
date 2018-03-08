@@ -149,8 +149,8 @@ html(lang="en")
           var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
           
           $('#pay-button').on('click', function(event) {
+              
               event.preventDefault();
-              //- $("#pay-button").prop( "disabled", true); Luego no se vuelve a activar, no es requerido esto.
               OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);                
           });
 
@@ -169,7 +169,10 @@ html(lang="en")
             $('#card_number_error').html( "" );
             $('#expiration_month_error').html( "" );
             $('#expiration_year_error').html( "" );
-            $("#pay-button").attr('disabled','disabled');
+
+            var loader = $('#pay-button').find('#icon');
+            loader.removeClass('fa fa-flash ml-2').addClass('fa fa-refresh fa-spin');
+            $('#pay-button').attr('disabled','disabled');
 
             $.ajax({
                 url: "/pll",
@@ -204,10 +207,12 @@ html(lang="en")
                       alertify.error(data.error);
 
                     $("#pay-button").removeAttr('disabled');
+                    loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
                 },
                 error: function(data) { //solo de conectividad
                   conseol.log(data);
                   $("#pay-button").removeAttr('disabled');
+                  loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
                 }
             });
           };
