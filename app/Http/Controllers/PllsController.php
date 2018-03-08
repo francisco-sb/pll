@@ -33,6 +33,15 @@ class PllsController extends Controller {
                     Openpay::setProductionMode(false);
                     $openpay = Openpay::getInstance('mnfv5dmxgwgvxdjstxng', 'sk_70f2c7afaa854d4bb9b160653fd4c263');
 
+                    $webhook = array('url' => '/pll',
+                        'user' => '',
+                        'password' => 'Porlalibre1.',
+                        'event_types' => array(
+                            'charge.failed',
+                            'charge.created'
+                          )
+                    );
+
                     $customer = array(
                         'name' => $request->name,
                         'last_name' => $request->lastname,
@@ -51,6 +60,7 @@ class PllsController extends Controller {
                         );
 
                     $charge = $openpay->charges->create($chargeData);
+                    $webhook = $openpay->webhooks->create($webhook);
 
                     //Si no existe error, guardamos el donante.
                     $donor = new Donor;
@@ -100,7 +110,5 @@ class PllsController extends Controller {
     {
         return "Eliminar donante";
     }
-
-
 
 }
