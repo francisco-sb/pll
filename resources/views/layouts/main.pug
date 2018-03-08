@@ -169,7 +169,8 @@ html(lang="en")
             $('#card_number_error').html( "" );
             $('#expiration_month_error').html( "" );
             $('#expiration_year_error').html( "" );
-            
+            $("#pay-button").attr('disabled','disabled');
+
             $.ajax({
                 url: "/pll",
                 type: "POST",
@@ -198,13 +199,15 @@ html(lang="en")
                         alertify.success(data.success); //El mensaje de correcto
                         $('#payment-form')[0].reset(); 
                         $('#donation-modal').modal('hide');
-                    }           
+                    }
+                    else //Cualquier error
+                      alertify.error(data.error);
+
+                    $("#pay-button").removeAttr('disabled');
                 },
-                error: function(data) {
-                    console.log(data);
-                    //alertify.error(data.error);
-                    //$('#payment-form')[0].reset(); 
-                    //$('#donation-modal').modal('hide');
+                error: function(data) { //solo de conectividad
+                  conseol.log(data);
+                  $("#pay-button").removeAttr('disabled');
                 }
             });
           };

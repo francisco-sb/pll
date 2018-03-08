@@ -52,48 +52,36 @@ class PllsController extends Controller {
 
                     $charge = $openpay->charges->create($chargeData);
 
-                    // //Si no existe error, guardamos el donante.
-                    // $donor = new Donor;
-                    // $donor->name = $request->name;
-                    // $donor->lastname = $request->lastname;
-                    // $donor->email = $request->email;
-                    // $donor->amount = (float) 0;//$request->amount; --Poner el amount
-                    // $donor->save();
-
-                } catch (OpenpayApiTransactionError $e) {
+                    //Si no existe error, guardamos el donante.
+                    $donor = new Donor;
+                    $donor->name = $request->name;
+                    $donor->lastname = $request->lastname;
+                    $donor->email = $request->email;
+                    $donor->amount = (float) 0;//$request->amount; --Poner el amount
+                    $donor->save();
+                } catch (\OpenpayApiTransactionError $e) {
                   	$message = 'ERROR en la transacción: ' . $e->getMessage() .
                   	      ' [error code: ' . $e->getErrorCode() .
                   	      ', error category: ' . $e->getCategory() .
                   	      ', HTTP code: '. $e->getHttpCode() .
                   	      ', request ID: ' . $e->getRequestId() . ']';
-                    //return response()->json(['error' => $message]);
-                    error_log($message);
+                    return response()->json(['error' => $message]);
 
-                } catch (OpenpayApiRequestError $e) {
+                } catch (\OpenpayApiRequestError $e) {
                 	  $message = 'ERROR en la solicitud: ' . $e->getMessage();
                     return response()->json(['error' => $message]);
-                    error_log($message);
-
-                } catch (OpenpayApiConnectionError $e) {
+                } catch (\OpenpayApiConnectionError $e) {
                 	  $message = 'ERROR al conectarse con la API de Openpay: ' . $e->getMessage();
                     return response()->json(['error' => $message]);
-                    error_log($message);
-
-                } catch (OpenpayApiAuthError $e) {
+                } catch (\OpenpayApiAuthError $e) {
                 	  $message = 'ERROR de autenticación: ' . $e->getMessage();
                     return response()->json(['error' => $message]);
-                    error_log($message);
-
-                } catch (OpenpayApiError $e) {
+                } catch (\OpenpayApiError $e) {
                 	  $message = 'ERROR en la API: ' . $e->getMessage();
                     return response()->json(['error' => $message]);
-                    error_log($message);
-
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                   	$message = 'Error en el script: ' . $e->getMessage();
                     return response()->json(['error' => $message]);
-                    error_log($message);
-
                 }
 
                 return response()->json(['success' => "¡Gracias por tu donativo!"]);
