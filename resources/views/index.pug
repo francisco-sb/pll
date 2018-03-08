@@ -109,28 +109,28 @@ block content
               form#payment-form.needs-validation(action="/pll" method="POST")
                 input#token_id(type="hidden" name="token_id")
                 div.row
-                  div.col-md-6
+                  div.col-lg-6
                     //-input name
                     div.md-form.form-group
                       i.fa.fa-user.prefix.grey-text
                       input#name.form-control(type="text" name="name" required)
                       label.font-weight-light(for="name") Nombre
-                      span.text-danger: strong(id="name_error")
+                      span.text-danger: small.form-text.red-text(id="name_error")
                       //-div.invalid-feedback
                     //-input lastname
                     div.md-form.form-group(required)
                       i.fa.fa-user.prefix.grey-text
                       input#lastname.form-control(type="text" name="lastname")
                       label.font-weight-light(for="name") Apellido
-                      span.text-danger: strong(id="lastname_error")  
+                      span.text-danger: small.form-text.red-text(id="lastname_error")  
                     //-input email
                     div.md-form.form-group(required)
                       i.fa.fa-envelope.prefix.grey-text
                       input#email.form-control(type="email" name="email")
                       label.font-weight-light(for="email") Correo electrónico
-                      span.text-danger: strong(id="email_error")
-                    div.md-form.form-group(required)
-                  div.col-md-6
+                      span.text-danger: small.form-text.red-text(id="email_error")
+                        
+                  div.col-lg-6
                     div.row
                       div.col-md-8
                         //-input owner
@@ -139,37 +139,45 @@ block content
                           input#holder_name.form-control(type="text" name="holder_name" data-openpay-card="holder_name")
                           label.font-weight-light(for="holder_name") Nombre del titular
                             i.fa.fa-question-circle.ml-2(data-toggle="tooltip" title="Nombre tal y como se encuentra en la tarjeta")
-                          span.text-danger: strong(id="holder_name_error")
+                          span.text-danger: small.form-text.red-text(id="holder_name_error")
                       div.col-md-4
                         //-input cvv2                        
                         div.md-form.form-group(required)
                           i.fa.fa-credit-card-alt.prefix.grey-text
-                          input#cvv2.form-control(type="text" name="cvv2" autocomplete="off" data-openpay-card="cvv2")
+                          input#cvv2.form-control(type="password" name="cvv2" autocomplete="off" data-openpay-card="cvv2" maxlength="4")
                           label.font-weight-light(for="cvv2") CVV
                             i.fa.fa-question-circle.ml-2(data-toggle="tooltip" title="Los 3 o 4 dígitos al reverso de tu tarjeta")
-                          span.text-danger: strong(id="cvv2_error")
+                          span.text-danger: small.form-text.red-text(id="cvv2_error")
                     //-input card_number
                     div.md-form.form-group(required)
                       i.fa.fa-credit-card-alt.prefix.grey-text
                       input#card_number.form-control(type="text" name="card_number" autocomplete="off" data-openpay-card="card_number")
                       label.font-weight-light(for="card_number") Número de tarjeta
-                      span.text-danger: strong(id="card_numer_error")
+                      span.text-danger: small.form-text.red-text(id="card_numer_error")
                     div.row
                       div.col-md-4
                         //-input expiration_month  
                         div.md-form.form-group(required)
                           i.fa.fa-calendar.prefix.grey-text
-                          input#expiration_month.form-control(type="text" name="expiration_month" aria-describedby="expiration_help" data-openpay-card="expiration_month")
+                          input#expiration_month.form-control(type="number" name="expiration_month" aria-describedby="expiration_help" data-openpay-card="expiration_month" min="1" max="12")
                           label.font-weight-light(for="expiration_month") MM
-                          span.text-danger: strong(id="expiration_month_error")
+                          span.text-danger: small.form-text.red-text(id="expiration_month_error")
                           small#expiration_help.form-text.text-muted Fecha de expiración
                             i.fa.fa-question-circle.ml-2(data-toggle="tooltip" title="A dos dígitos")
                       div.col-md-3
                         //-input expiration_year
                         div.md-form.form-group(required)
-                          input#expiration_year.form-control(type="text" name="expiration_year" data-openpay-card="expiration_year")
+                          input#expiration_year.form-control(type="number" name="expiration_year" data-openpay-card="expiration_year" min="18" max="35")
                           label.font-weight-light(for="expiration_year") AA
-                          span.text-danger: strong(id="expiration_year_error")
+                          span.text-danger: small.form-text.red-text(id="expiration_year_error")
+                      div.col-md-5
+                        //-amount
+                        div.md-form.form-group(required)
+                          i.fa.fa-usd.prefix.grey-text
+                          input#amount.form-control(type="number" name="amount" aria-describedby="amount_help" step="50" value="50")
+                          label.font-weight-light(for="amount") Cantidad
+                          span.text-danger: small.form-text.red-text(id="amount_error")
+                          small#amount_help.form-text.text-muted Dona la cantidad que desees
                 div.row
                   div.col-md-4.grey-text.text-md-right
                     p.grey-text Transacciones realizadas vía:

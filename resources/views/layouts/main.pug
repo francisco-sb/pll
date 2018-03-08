@@ -7,7 +7,7 @@ html(lang="en")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
     
     link(rel="stylesheet" href="/css/font-awesome.min.css")
-    link(rel="stylesheet" href="/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
     link(rel="stylesheet" href="/css/mdb.min.css")
     link(rel="stylesheet" href="/css/style.css")
 
@@ -112,14 +112,14 @@ html(lang="en")
       //-Copyright
       div.footer-copyright
         div.container-fluid.text-center © 2018 Copyright: 
-            a(href="https://www.porlalibre.mx") ¡Vámonos por la libre!
-    //-
-      script(type="text/javascript" src="/js/jquery-3.2.1.js")
-    script(type="text/javascript" src="/js/popper.min.js")
-    script(type="text/javascript" src="/js/bootstrap.min.js")
+            a(href="/") ¡Vámonos por la libre!
+    
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js")
     script(type="text/javascript" src="/js/mdb.min.js")
     
-    //-validatons, estoy validando sólo el campo de nombre
+    //-validatons
     script.
       (function() {
           'use strict';
@@ -160,7 +160,7 @@ html(lang="en")
 
             var paymentForm = $("#payment-form");
             var paymentformData = paymentForm.serialize();
-            /* $('#name_error').html( "" );
+            $('#name_error').html( "" );
             $('#lastname_error').html( "" );
             $('#email_error').html( "" );
             
@@ -169,6 +169,7 @@ html(lang="en")
             $('#card_number_error').html( "" );
             $('#expiration_month_error').html( "" );
             $('#expiration_year_error').html( "" );
+            $('#amount_error').html( "" );
 
             var loader = $('#pay-button').find('#icon');
             loader.removeClass('fa fa-flash ml-2').addClass('fa fa-refresh fa-spin');
@@ -197,6 +198,8 @@ html(lang="en")
                             $( '#expiration_month_error' ).html(data.errors_form.expiration_month[0]);
                         if(data.errors_form.expiration_year)
                             $( '#expiration_year_error' ).html(data.errors_form.expiration_year[0]);
+                        if(data.errors_form.amount)
+                            $( '#amount_error' ).html(data.errors_form.amount[0]);
                     }
                     if(data.success) {
                         alertify.success(data.success); //El mensaje de correcto
@@ -210,11 +213,11 @@ html(lang="en")
                     loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
                 },
                 error: function(data) { //solo de conectividad
-                  conseol.log(data);
+                  console.log(data);
                   $("#pay-button").removeAttr('disabled');
                   loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
                 }
-            }); */
+            });
           };
 
           var error_callbak = function(response) {
