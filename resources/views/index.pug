@@ -5,7 +5,7 @@ block content
       //-Section diary
       section#diary.text-center
         //-Heading
-        h2.mb-5.font-weight-bold Agenda
+        h2.mb-5.font-weight-bold(style="color: #522775;") Nuestro caminar
         //-Grid row
         div.row
           //-Grid column
@@ -17,74 +17,206 @@ block content
                 li.active(data-target="#carousel-diary" data-slide-to="0")
                 li(data-target="#carousel-diary" data-slide-to="1")
                 li(data-target="#carousel-diary" data-slide-to="2")
+                li(data-target="#carousel-diary" data-slide-to="3")
+                li(data-target="#carousel-diary" data-slide-to="4")
+                li(data-target="#carousel-diary" data-slide-to="5")
               //-Slides
               div.carousel-inner.z-depth-1-half(role="listbox")
                 div.carousel-item.active
-                  img.d-block.w-100(src="/img/005.jpeg" alt="First slide")
+                  img.d-block.w-100(src="/img/carousel-001.JPG" alt="First slide")
                 div.carousel-item
-                  img.d-block.w-100(src="/img/006.jpeg" alt="Second slide")
+                  img.d-block.w-100(src="/img/carousel-002.JPG" alt="Second slide")
                 div.carousel-item
-                  img.d-block.w-100(src="/img/007.jpeg" alt="Third slide")
+                  img.d-block.w-100(src="/img/carousel-003.JPG" alt="Third slide")
+                div.carousel-item
+                  img.d-block.w-100(src="/img/carousel-004.JPG" alt="Fourth slide")
+                div.carousel-item
+                  img.d-block.w-100(src="/img/carousel-005.JPG" alt="Fifth slide")
+                div.carousel-item
+                  img.d-block.w-100(src="/img/carousel-007.JPG" alt="Sixth slide")
               //-Controls
               a.carousel-control-prev(href="#carousel-diary" role="button" data-slide="prev")
-                img(src="/img/svg/ic_keyboard_arrow_left_black_24px.svg")
+                span.carousel-control-prev-icon(aria-hidden="true")
+                span.sr-only Anterior
               a.carousel-control-next(href="#carousel-diary" role="button" data-slide="next")
-                img(src="/img/svg/ic_keyboard_arrow_right_black_24px.svg")
+                span.carousel-control-next-icon(aria-hidden="true")
+                span.sr-only Siguiente
           div.col-md-6
-            h4.pb-1 Nuestro recorrido
-            p
-              | Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit 
-              | quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, 
-              | omnis dolor repellendus et aut officiis debitis aut rerum.
-            p
-              | Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit 
-              | quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, 
-              | omnis dolor repellendus et aut officiis debitis aut rerum.
+            p.grey-text.text-justify
+              | Es imprescindible el trabajo entusiasta en todos los municipios, forjemos el triunfo en cada localidad. Convenzamos
+              | cara a cara a nuestros conciudadanos de la enorme fuerza que tiene una convicción organizada. 
+            p.grey-text.text-justify
+              | Me queda claro que esta tarea sólo es posible con el consenso y participación decidida de todos ustedes. 
+              | Muchas gracias, y abramos de par en par las puertas a la esperanza.
       
       hr.my-5
       //-Section about-us
       section#about-us.text-center
         //-Heading
-        h2.mb-5.font-weight-bold Conócenos
+        h2.mb-5.font-weight-bold(style="color: #522775;") Conócenos
         //-Grid row
         div.row.d-flex.justify-content-center.mb-4
           //-Grid column
           div.col-md-8
-            p.grey-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate hic provident nulla repellat 
-              | facere esse molestiae ipsa labore porro minima quam quaerat rem, natus repudiandae debitis est sit pariatur.
+            p.grey-text.text-justify
+              | Caminar Por La Libre significa no pedir permiso para practicar nuestras libertades e ideales, es transitar como 
+              | ciudadanos ejerciendo nuestros derechos, buscamos contribuir para la solución de la crisis que actualmente 
+              | enfrenta Chiapas. Queremos ser un agente de cambio en el rumbo de nuestra sociedad, hoy en día cansada de las 
+              | injusticias por quienes ejercen el poder.
         //-Grid row
-        div.row
+        div.row.justify-content-between
           //-Grid column
-          div.col-lg-4.col-md-12.mb-4
+          div.col-lg-3.col-md-3.mb-3
             div.view.overlay.hm-white-slight.z-depth-1-half
-              img.img-fluid(src="https://pbs.twimg.com/media/DPWJIzMVAAEVl-h.jpg:large" alt="")
-              div.mask
-            h4.my-4.font-weight-bold Título
-            p.grey-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
-              | assumenda deleniti hic.
+              img.img-fluid(src="/img/collage-001.jpg_large" alt="")
+              div.mask.rgba-white-slight
+            //-
+              h4.my-4.font-weight-bold Título
+            br
+            p.grey-text.text-justify
+              | Con afecto respiro con ustedes el aire cálido de esta tierra. Hombres y mujeres del campo y la ciudad, 
+              | que han hecho de los estribos de Chiapas un suelo  digno para vivir.
           //-Grid column
-          div.col-lg-4.col-md-6.mb-4
+          div.col-lg-3.col-md-3.mb-3
             div.view.overlay.hm-white-slight.z-depth-1-half
-              img.img-fluid(src="https://pbs.twimg.com/media/DTltiEvW0AEoGaI.jpg:large" alt="")
-              div.mask
-            h4.my-4.font-weight-bold Título
-            p.grey-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
-              | assumenda deleniti hic.
-              
+              img.img-fluid(src="/img/collage-002.jpeg" alt="")
+              div.mask.rgba-white-slight
+            //-
+              h4.my-4.font-weight-bold Título
+            br
+            p.grey-text.text-justify
+              | Por eso hoy afirmamos categóricamente: para nuestro movimiento la gente no es primero ni después, 
+              | la gente ¡es siempre!
           //-Grid column
-          div.col-lg-4.col-md-6.mb-4
+          div.col-lg-3.col-md-3.mb-3
             div.view.overlay.hm-white-slight.z-depth-1-half
-              img.img-fluid(src="https://pbs.twimg.com/media/DUGpzT1VoAApj_7.jpg:large" alt="")
-              div.mask
-            h4.my-4.font-weight-bold Título
-            p.grey-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima
-              | assumenda deleniti hic.
+              img.img-fluid(src="/img/collage-003.jpg_large" alt="")
+              div.mask.rgba-white-slight
+            //-
+              h4.my-4.font-weight-bold Título
+            br
+            p.grey-text.text-justify
+              | Mi mayor sueño es que el Chiapas que vea crecer a nuestros hijos, sea mejor que el Chiapas 
+              | que los vio nacer.
 
       hr.my-5
-      
-      div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
-        a.btn-floating.btn-large.red.waves-effect.waves-light(href="#intro"): i.fa.fa-arrow-up
+      //-Section about-us
+      section#donation.text-center
+        //-Heading
+        h2.mb-5.font-weight-bold(style="color: #522775;") Aporta a este proyecto
+        //-Grid row
+        div.row.d-flex.justify-content-center.mb-4
+          //-Grid column
+          div.row
+            div.col-lg-6
+              p.grey-text.text-justify
+                | Te invitamos a unirte a este gran movimiento que busca poner de pie lo que está de cabeza, somos un grupo de 
+                | ciudadanos caminando por la libre, comprometidos en buscar el bien de Chiapas. Hoy más que nunca creemos que 
+                | la única forma de construir una mejor sociedad es organizándonos y uniéndonos como ciudadanos consientes de 
+                | la situación que atraviesa nuestro querido Chiapas. Apoya a este movimiento y así contribuye a la construcción
+                | de un mejor lugar donde vivir.
+            div.col-lg-6
+              video(width="320" height="240" controls autoplay muted)
+                source(src="/img/infographics.mp4" type="video/mp4")
+          button.btn.btn-warning.btn-rounded(type="button" data-toggle="modal" data-target="#donation-modal") Aporta
+            i.fa.fa-flash.ml-2
+      //-
+        div.fixed-action-btn.smooth-scroll(style="bottom: 45px; right: 24px;")
+          a.btn-floating.btn-large.red.waves-effect.waves-light(href="#intro"): i.fa.fa-arrow-up
+
+      //-Modal
+      div#donation-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="donation-modal-label" aria-hidden="true")
+        div.modal-dialog.modal-lg.cascading-modal(role="document")
+          div.modal-content
+            div.modal-header.blue-grey.lighten-5.grey-text
+              //-h4#donation-modal-label.modal-title Modal title
+              div.row.justify-content-start
+                div.col-md-4(style="border-right: 1px solid;")
+                  p.h6.py-4 Tarjetas de crédito
+                  img.img-fluid(src="/img/cards1.png")
+                div.col-md-8
+                  p.h6.py-4 Tarjetas de débito
+                  img.img-fluid(src="/img/cards2.png")
+              button.close(type="button" data-dismiss="modal" aria-label="Close")
+                span.grey-text(aria-hidden="true") &times;
+            div.modal-body
+              //-Material form
+              form#payment-form.needs-validation(action="http_//por-lalibre.com/pll" method="POST")
+                input#token_id(type="hidden" name="token_id")
+                div.row
+                  div.col-lg-6
+                    //-input name
+                    div.md-form.form-group
+                      i.fa.fa-user.prefix.grey-text
+                      input#name.form-control(type="text" name="name" required)
+                      label.font-weight-light(for="name") Nombre
+                      span.text-danger: small.form-text.red-text(id="name_error")
+                      //-div.invalid-feedback
+                    //-input lastname
+                    div.md-form.form-group(required)
+                      i.fa.fa-user.prefix.grey-text
+                      input#lastname.form-control(type="text" name="lastname")
+                      label.font-weight-light(for="name") Apellido
+                      span.text-danger: small.form-text.red-text(id="lastname_error")  
+                    //-input email
+                    div.md-form.form-group(required)
+                      i.fa.fa-envelope.prefix.grey-text
+                      input#email.form-control(type="email" name="email")
+                      label.font-weight-light(for="email") Correo electrónico
+                      span.text-danger: small.form-text.red-text(id="email_error")
+                        
+                  div.col-lg-6
+                    div.row
+                      div.col-md-8
+                        //-input owner
+                        div.md-form.form-group(required)
+                          i.fa.fa-user.prefix.grey-text
+                          input#holder_name.form-control(type="text" name="holder_name" data-openpay-card="holder_name")
+                          label.font-weight-light(for="holder_name") Nombre del titular
+                            i.fa.fa-question-circle.ml-2(data-toggle="tooltip" title="Nombre tal y como se encuentra en la tarjeta")
+                          span.text-danger: small.form-text.red-text(id="holder_name_error")
+                      div.col-md-4
+                        //-input cvv2                        
+                        div.md-form.form-group(required)
+                          i.fa.fa-credit-card-alt.prefix.grey-text
+                          input#cvv2.form-control(type="password" name="cvv2" autocomplete="off" data-openpay-card="cvv2" maxlength="4")
+                          label.font-weight-light(for="cvv2") CVV
+                            i.fa.fa-question-circle.ml-2(data-toggle="tooltip" title="Los 3 o 4 dígitos al reverso de tu tarjeta")
+                          span.text-danger: small.form-text.red-text(id="cvv2_error")
+                    //-input card_number
+                    div.md-form.form-group(required)
+                      i.fa.fa-credit-card-alt.prefix.grey-text
+                      input#card_number.form-control(type="text" name="card_number" autocomplete="off" data-openpay-card="card_number")
+                      label.font-weight-light(for="card_number") Número de tarjeta
+                      span.text-danger: small.form-text.red-text(id="card_numer_error")
+                    div.row
+                      div.col-md-4
+                        //-input expiration_month  
+                        div.md-form.form-group(required)
+                          i.fa.fa-calendar.prefix.grey-text
+                          input#expiration_month.form-control(type="number" name="expiration_month" aria-describedby="expiration_help" data-openpay-card="expiration_month" min="1" max="12")
+                          label.font-weight-light(for="expiration_month") MM
+                          span.text-danger: small.form-text.red-text(id="expiration_month_error")
+                          small#expiration_help.form-text.text-muted Fecha de expiración
+                            i.fa.fa-question-circle.ml-2(data-toggle="tooltip" title="A dos dígitos")
+                      div.col-md-3
+                        //-input expiration_year
+                        div.md-form.form-group(required)
+                          input#expiration_year.form-control(type="number" name="expiration_year" data-openpay-card="expiration_year" min="18" max="35")
+                          label.font-weight-light(for="expiration_year") AA
+                          span.text-danger: small.form-text.red-text(id="expiration_year_error")
+                      div.col-md-5
+                        //-amount
+                        div.md-form.form-group(required)
+                          i.fa.fa-usd.prefix.grey-text
+                          input#amount.form-control(type="number" name="amount" aria-describedby="amount_help" step="50" value="50")
+                          label.font-weight-light(for="amount") Cantidad
+                          span.text-danger: small.form-text.red-text(id="amount_error")
+                          small#amount_help.form-text.text-muted Aporta la cantidad que desees
+                div.row
+                  div.col-md-4.grey-text.text-md-right
+                    p.grey-text Transacciones realizadas vía:
+                    img.img-fluid(src="/img/openpay.png")
+                div.text-center.mt-4.mb-2
+                  button#pay-button.btn.btn-warning.btn-rounded(type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando Pago") Aporta 
+                    i#icon.fa.fa-flash.ml-2

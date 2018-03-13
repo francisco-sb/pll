@@ -1,22 +1,31 @@
 doctype html
 html(lang="en")
   head
-    title Por la libre
+    title Por La Libre
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
-    //-
-      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css")
-      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
-      link(rel="stylesheet" href="/css/style.css")
-    //-
     
-    link(rel="stylesheet" href="/css/font-awesome.min.css")
-    link(rel="stylesheet" href="/css/bootstrap.min.css")
-    link(rel="stylesheet" href="/css/mdb.min.css")
+    link(rel="shortcut icon" type="image/png" href="img/logo.png")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.css")
     link(rel="stylesheet" href="/css/style.css")
-    
+      
+    //-
+      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.css")  
+
+    link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css")
+    link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/bootstrap.min.css")
+    //-  
+      script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+    script(type="text/javascript" src="/js/jquery-3.2.1.min.js")
+    script(type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js")
+    script(type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js")
+    script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js")
+    script(type="text/javascript" src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js")
+
   body
     //-Main navigation
     header
@@ -24,45 +33,56 @@ html(lang="en")
       nav.navbar.navbar-expand-lg.navbar-dark.fixed-top.scrolling-navbar
         div.container
           //-navbar brand
-          a.navbar-brand(href="#"): img.navbar-brand.rounded-circle(src="/img/logo.jpg" alt="logo" width="40px")
+          a.navbar-brand(href="/"): img.navbar-brand(src="/img/logo.png" alt="logo" width="45px")
           //-Collapse button
           button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon
           //-Collapsible content
           div#navbarSupportedContent.collapse.navbar-collapse
             //-Links
-            ul.navbar-nav.mr-auto.smooth-scroll
+            ul.navbar-nav.mr-auto.smooth-scroll.justify-content-between
               li.nav-item
-                a.nav-link(href="#intro") Inicio
+                button.nav-link.btn.btn-outline-white.btn-md.my-2.my-sm-0.ml-3(onclick="window.location='#intro'" type="button") Inicio
               li.nav-item
-                a.nav-link(href="#diary") Agenda
+                button.nav-link.btn.btn-outline-white.btn-md.my-2.my-sm-0.ml-3(onclick="window.location='#diary'" type="button") Nuestro caminar
               li.nav-item
-                a.nav-link(href="#about-us") Conócenos
+                button.nav-link.btn.btn-outline-white.btn-md.my-2.my-sm-0.ml-3(onclick="window.location='#about-us'" type="button") Conócenos
               li.nav-item
-                a.nav-link(href="#donation") Aportar
+                button.nav-link.btn.btn-outline-white.btn-md.my-2.my-sm-0.ml-3(onclick="window.location='#donation'" type="button") Aporta
             //-Social icons
             ul.navbar-nav.nav-flex-icons
               li.nav-item
-                a.nav-link(href="https://es-la.facebook.com/psmendiguchia/"): i.fa.fa-facebook
+                a.nav-link(href="https://es-la.facebook.com/psmendiguchia/" target="_blank"): i.fa.fa-facebook
               li.nav-item
-                a.nav-link(href="https://twitter.com/PSMendiguchia/"): i.fa.fa-twitter
-                
+                a.nav-link(href="https://twitter.com/PSMendiguchia/" target="_blank"): i.fa.fa-twitter
+              li.nav-item
+                a.nav-link(href="https://www.youtube.com/channel/UC6AxzSyrioFBwA-AUjMqsVg" target="_blank"): i.fa.fa-youtube
+            
       //-Mask
-      div#intro.view.hm-black-strong
-        div.container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center
-          div.row.d-flex.justify-content-center
-            div.col-md-10.text-center
-              //-Heading
-              h2.display-3.font-bold.white-text.mb-2 ¡Vámonos por la libre!
-              //-Divider
-              hr.hr-light
-              //-Description
-              h4.white-text.my-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur.
-              button.btn.btn-warning.btn-rounded(type="button") Apóyanos con tu donación
-                i.fa.fa-flash.ml-2
-
-    block content
+      div#intro.view
+        div.full-bg-img
+          div.mask.rgba-black-strong
+            div.container-fluid.d-flex.flex-colum.align-items-center.justify-content-center.h-100
+              div.row.d-flex.justify-content-center
+                div.col-md-10.text-center
+                  //-Heading
+                  h2.display-3.font-bold.white-text.mb-2 ¡Vámonos por la libre!
+                  //-Divider
+                  hr.hr-light
+                  //-Description
+                  h5.white-text.my-4 
+                    | Es momento de sacudirse la indiferencia y ser parte de este nuevo día. Ya no hay tiempo para 
+                    | observar, la hora de actuar ha llegado. Ya no hay mañana para Chiapas. ¡El mañana es ahora!
+                  a.btn.btn-warning.btn-rounded(href="#donation" type="button") Aporta
+                    i.fa.fa-flash.ml-2
+                  div.container
+                    div.d-flex.align-items-center.flex-column.h-100
+                      div#fullscreen.mt-auto.p-2.z-depth-2 
+                        video#video(width="240" height="160" controls autoplay)
+                          source(src="/img/infographics.mp4" type="video/mp4")
     
+    block content
+        
     //-Footer
     footer.page-footer.center-on-small-only.unique-color-dark.pt-0
       //-Social
@@ -76,50 +96,157 @@ html(lang="en")
             //-Grid colum
             div.col-md-6.col-lg-7.text-md-right
                 //-Facebook
-                a.icons-sm.fb-ic: i.fa.fa-facebook.white-text.mr-4
+                a.icons-sm.fb-ic(href="https://es-la.facebook.com/psmendiguchia/" target="_blank"): i.fa.fa-facebook.white-text.mr-4
                   //-Twitter
-                a.icons-sm.fb-ic: i.fa.fa-twitter.white-text.mr-4
+                a.icons-sm.fb-ic(href="https://twitter.com/PSMendiguchia/" target="_blank"): i.fa.fa-twitter.white-text.mr-4
+                //-Youtube
+                a.icons-sm.fb-ic(href="https://www.youtube.com/channel/UC6AxzSyrioFBwA-AUjMqsVg" target="_blank"): i.fa.fa-youtube.white-text.mr-4
         
       //-Footer Links        
       div.container.mt-5.mb-4.text-center.text-md-left
         div.row.mt-3
           //-Firts colum
           div.col-md-3.col-lg-2.col-xl-2.mb-r
-            img.navbar-brand.rounded-circle(src="/img/logo.jpg" alt="logo-footer" style="width: 128px; no-repeat center center fixed;")
+            img.navbar-brand(src="/img/logo.png" alt="logo-footer" style="width: 128px; no-repeat center center fixed;")
           //-Second colum
           div.col-md-6.col-lg-8.col-xl-7.mx-auto.mb-r
-            h6.title.font-bold
-              a(href="#"): strong Aporta al proyecto
+            h6.text-uppercase.font-weight-bold
+              a(href="#donation"): strong Aporta al proyecto
             hr.red.mb-4.mt-0.d-inline-block.mx-auto(style="width: 60px;")
             p
-              | Texto sobre el porqué donar o aportar a la causa
-              | Texto sobre el porqué donar o aportar a la causa
-              | Texto sobre el porqué donar o aportar a la causa
-              | Texto sobre el porqué donar o aportar a la causa
+              | ¿Sabías que el presupuesto para los partidos políticos es casi 7 mil millones de pesos? Mientras que a los 
+              | independientes de manera general a todos los candidatos solo se les otorgará el .64 por ciento ¿Es 
+              | inequitativo verdad? Es una diferencia enorme pero ahora los ciudadanos ya pueden aportar su apoyo económico.
+              | Recuerda tu puedes apoyar a los independientes tu aportación es importante.
           //-Third colum
-          div.col-md-3.col-lg-2.col-xl-3
-              h6.title.font-bold
+          div.col-md-3.col-lg-2.col-xl-3.mx-auto.mb-r
+              h6.text-uppercase.font-weight-bold
                 strong Contacto
               hr.red.mb-4.mt-0.d-inline-block.mx-auto(style="width: 60px;")
-              p: i.fa.fa-home.mr-3 Municipio, Estado.</p>
-              p: i.fa.fa-envelope.mr-3 info@example.com
-              p: i.fa.fa-phone.mr-3 (961)-0123456
+              p: i.fa.fa-home.mr-3   Tuxtla Gutiérrez, Chiapas
+              p: i.fa.fa-envelope.mr-3   contactoporlalibre@gmail.com
+              p: i.fa.fa-phone.mr-3   (961)-6127008
 
       //-Copyright
       div.footer-copyright
         div.container-fluid.text-center © 2018 Copyright: 
-            a(href="https://www.porlalibre.mx") ¡Vámonos por la libre!
-    //-
-    script(type="text/javascript" src="/js/jquery-3.2.1.js")
+            a(href="/") ¡Vámonos por la libre!
+    
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js")
     script(type="text/javascript" src="/js/popper.min.js")
     script(type="text/javascript" src="/js/bootstrap.min.js")
     script(type="text/javascript" src="/js/mdb.min.js")
-    //-
-      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js")
-      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
-      script(type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
-      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css")
     
+    //-validatons
+    script.
+      window.onload = function() {
+          // Video
+          var video = document.getElementById("video");
+          // Buttons
+          var fullscreen = document.getElementById("fullscreen");
+      }
+      
+      // Event listener for the full-screen button
+      fullscreen.addEventListener("click", function() {
+          if (video.requestFullscreen) {
+              video.requestFullscreen();
+          } else if (video.mozRequestFullScreen) {
+              video.mozRequestFullScreen(); // Firefox
+          } else if (video.webkitRequestFullscreen) {
+              video.webkitRequestFullscreen(); // Chrome and Safari
+          }
+      });
+
+    
+    //-openpay
+    script.
+      $(document).ready(function() {
+          OpenPay.setId('mnfv5dmxgwgvxdjstxng');
+          OpenPay.setApiKey('pk_c69dd59d03d342e682ed1c54b5de509b');
+          OpenPay.setSandboxMode(true);
+          //Se genera el id de dispositivo
+          var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+          
+          $('#pay-button').on('click', function(event) {
+              
+              event.preventDefault();
+              OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);                
+          });
+
+          var sucess_callbak = function(response) {
+            var token_id = response.data.id;
+            $('#token_id').val(token_id);
+
+            var paymentForm = $("#payment-form");
+            var paymentformData = paymentForm.serialize();
+            $('#name_error').html( "" );
+            $('#lastname_error').html( "" );
+            $('#email_error').html( "" );
+            
+            $('#holder_name_error').html( "" );
+            $('#cvv2_error').html( "" );
+            $('#card_number_error').html( "" );
+            $('#expiration_month_error').html( "" );
+            $('#expiration_year_error').html( "" );
+            $('#amount_error').html( "" );
+
+            var loader = $('#pay-button').find('#icon');
+            loader.removeClass('fa fa-flash ml-2').addClass('fa fa-refresh fa-spin');
+            $('#pay-button').attr('disabled','disabled');
+
+            $.ajax({
+                url: "/pll",
+                type: "POST",
+                data: paymentformData,
+                success: function(data) {
+                    console.log(data);
+                    if(data.errors_form) {
+                        if(data.errors_form.name)
+                            $( '#name_error' ).html(data.errors_form.name[0]);
+                        if(data.errors_form.lastname)
+                            $( '#lastname_error' ).html(data.errors_form.lastname[0]);
+                        if(data.errors_form.email)
+                            $( '#email_error' ).html(data.errors_form.email[0]);
+                        if(data.errors_form.holder_name)
+                            $( '#holder_name_error' ).html(data.errors_form.holder_name[0]);
+                        if(data.errors_form.cvv2)
+                            $( '#cvv2_error' ).html(data.errors_form.cvv2[0]);
+                        if(data.errors_form.card_number)
+                            $( '#card_number_error' ).html(data.errors_form.card_number[0]);
+                        if(data.errors_form.expiration_month)
+                            $( '#expiration_month_error' ).html(data.errors_form.expiration_month[0]);
+                        if(data.errors_form.expiration_year)
+                            $( '#expiration_year_error' ).html(data.errors_form.expiration_year[0]);
+                        if(data.errors_form.amount)
+                            $( '#amount_error' ).html(data.errors_form.amount[0]);
+                    }
+                    if(data.success) {
+                        alertify.success(data.success); //El mensaje de correcto
+                        $('#payment-form')[0].reset(); 
+                        $('#donation-modal').modal('hide');
+                    }
+                    else //Cualquier error
+                      alertify.error(data.error);
+
+                    $("#pay-button").removeAttr('disabled');
+                    loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
+                },
+                error: function(data) { //solo de conectividad
+                  console.log(data);
+                  $("#pay-button").removeAttr('disabled');
+                  loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
+                }
+            });
+          };
+
+          var error_callbak = function(response) {
+              var desc = response.data.description != undefined ? response.data.description : response.message;
+              alertify.error("ERROR [" + response.status + "]" + desc );
+              $("#pay-button").prop("disabled", false);
+          };
+
+      });
+      
     //-Carousel options
     script.
       $('.carousel').carousel({

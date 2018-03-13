@@ -2,11 +2,12 @@ html,
 body,
 header,
 #intro {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 100%;
 }
 
 #intro {
-    background: url("/img/001.jpeg")no-repeat center center fixed;
+    background: url("/img/background.jpeg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,5 +15,9 @@ header,
 }
 
 .top-nav-collapse {
-    background-color: #24355C;
+    background-color: #522775;
+}
+
+#fullscreen {
+    cursor: pointer;;
 }

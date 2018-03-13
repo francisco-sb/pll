@@ -16,18 +16,15 @@
 // });
 
 $router->get('/', function() use ($router) {
-    return view('index');
-});
-
-$router->get('/index', function() use ($router) {
-    return view('index');
+    return view('index', ['status' => 0,
+                          'message' => '']);
 });
 
 /**
  * Routes for resource pll
  */
-$router->get('pll', 'PllsController@all');
-$router->get('pll/{id}', 'PllsController@get');
+// $router->get('pll', 'PllsController@all');
+// $router->get('pll/{id}', 'PllsController@get');
 $router->post('pll', 'PllsController@add');
-$router->put('pll/{id}', 'PllsController@put');
-$router->delete('pll/{id}', 'PllsController@remove');
+// $router->put('pll/{id}', 'PllsController@put');
+// $router->delete('pll/{id}', 'PllsController@remove');
