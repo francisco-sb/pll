@@ -16,7 +16,24 @@ class PllsController extends Controller {
 
     public function get(Request $request)
     {
-        return "Get donante";
+        try
+        {
+            Openpay::setProductionMode(false);
+            $openpay = Openpay::getInstance('mnfv5dmxgwgvxdjstxng', 'sk_70f2c7afaa854d4bb9b160653fd4c263');
+
+            $charge = $openpay->charges->get($request->id);
+            $status = $charge->status;
+            if ($status == 'completed') {
+                $message = 'Transacción exitosa, gracias por tu aportación.';
+            } else if ($status == 'failed'){
+                $message = 'Tu transacción falló... Error: '.$charge->error_message;
+            }
+        } catch (\Exception $e) {
+            $message = 'Error: ' . $e->getMessage();
+        }
+
+        return response()->json(['status' => $status,
+                                 'charge' => $message]);
     }
 
     public function add(Request $request)
@@ -40,16 +57,18 @@ class PllsController extends Controller {
 
                     $chargeData = array(
                         'method' => 'card',
-                        'source_id' => $request->token_id,
                         'amount' => (float)$request->amount,
                         'description' => "Donación por la persona: ".$request->name,
+                        'source_id' => $request->token_id,
+                        'redirect_url' => 'https://www.por-lalibre.com/',
+                        'use_3d_secure' => 'true',
                         'device_session_id' => $request->deviceIdHiddenFieldName,
                         'customer' => $customer
                         );
 
                     $charge = $openpay->charges->create($chargeData);
 
-                    // //Si no existe error, guardamos el donante.
+                    // Si no existe error, guardamos el donante.
                     $donor = new Donor;
                     $donor->name = $request->name;
                     $donor->lastname = $request->lastname;
@@ -82,12 +101,12 @@ class PllsController extends Controller {
                     return response()->json(['error' => $message]);
 
                 } catch (\Exception $e) {
-                  	$message = 'Error en el script: ' . $e->getMessage();
+                  	$message = 'Error: ' . $e->getMessage();
                     return response()->json(['error' => $message]);
 
                 }
 
-                return response()->json(['success' => "¡Gracias por tu donativo!"]);
+                return response()->json(['success' => $charge->payment_method->url]);
             }
 
             return response()->json(['errors_form' => $validator->errors()]);

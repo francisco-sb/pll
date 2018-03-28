@@ -44,9 +44,9 @@ block content
           div.col-md-6
             p.grey-text.text-justify
               | Es imprescindible el trabajo entusiasta en todos los municipios, forjemos el triunfo en cada localidad. Convenzamos
-              | cara a cara a nuestros conciudadanos de la enorme fuerza que tiene una convicción organizada. 
+              | cara a cara a nuestros paisanos de la enorme fuerza que tiene una convicción organizada. 
             p.grey-text.text-justify
-              | Me queda claro que esta tarea sólo es posible con el consenso y participación decidida de todos ustedes. 
+              | Me queda claro que esta tarea sólo es posible con la participación decidida de todos ustedes. 
               | Muchas gracias, y abramos de par en par las puertas a la esperanza.
       
       hr.my-5
@@ -59,10 +59,8 @@ block content
           //-Grid column
           div.col-md-8
             p.grey-text.text-justify
-              | Caminar Por La Libre significa no pedir permiso para practicar nuestras libertades e ideales, es transitar como 
-              | ciudadanos ejerciendo nuestros derechos, buscamos contribuir para la solución de la crisis que actualmente 
-              | enfrenta Chiapas. Queremos ser un agente de cambio en el rumbo de nuestra sociedad, hoy en día cansada de las 
-              | injusticias por quienes ejercen el poder.
+              | Por la libre es un acto de rebeldía democrática, es no pedir permiso, es romper el cerco y una forma nueva de hacer 
+              | política, a través de la cuál el poder ciudadano se impondrá al poder del dinero y de los partidos.
         //-Grid row
         div.row.justify-content-between
           //-Grid column
@@ -112,7 +110,7 @@ block content
               p.grey-text.text-justify
                 | Te invitamos a unirte a este gran movimiento que busca poner de pie lo que está de cabeza, somos un grupo de 
                 | ciudadanos caminando por la libre, comprometidos en buscar el bien de Chiapas. Hoy más que nunca creemos que 
-                | la única forma de construir una mejor sociedad es organizándonos y uniéndonos como ciudadanos consientes de 
+                | la única forma de construir una mejor sociedad es organizándonos y uniéndonos como ciudadanos conscientes de 
                 | la situación que atraviesa nuestro querido Chiapas. Apoya a este movimiento y así contribuye a la construcción
                 | de un mejor lugar donde vivir.
             div.col-lg-6
@@ -141,7 +139,7 @@ block content
                 span.grey-text(aria-hidden="true") &times;
             div.modal-body
               //-Material form
-              form#payment-form.needs-validation(action="http_//por-lalibre.com/pll" method="POST")
+              form#payment-form.needs-validation(action="/pll" method="POST")
                 input#token_id(type="hidden" name="token_id")
                 div.row
                   div.col-lg-6
@@ -186,7 +184,7 @@ block content
                     //-input card_number
                     div.md-form.form-group(required)
                       i.fa.fa-credit-card-alt.prefix.grey-text
-                      input#card_number.form-control(type="text" name="card_number" autocomplete="off" data-openpay-card="card_number")
+                      input#card_number.form-control(type="text" name="card_number" autocomplete="off" data-openpay-card="card_number" maxlength="16")
                       label.font-weight-light(for="card_number") Número de tarjeta
                       span.text-danger: small.form-text.red-text(id="card_numer_error")
                     div.row
@@ -209,7 +207,7 @@ block content
                         //-amount
                         div.md-form.form-group(required)
                           i.fa.fa-usd.prefix.grey-text
-                          input#amount.form-control(type="number" name="amount" aria-describedby="amount_help" step="50" value="50")
+                          input#amount.form-control(type="number" name="amount" aria-describedby="amount_help" step="50" value="50" min="0")
                           label.font-weight-light(for="amount") Cantidad
                           span.text-danger: small.form-text.red-text(id="amount_error")
                           small#amount_help.form-text.text-muted Aporta la cantidad que desees

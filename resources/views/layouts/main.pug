@@ -23,6 +23,7 @@ html(lang="en")
     script(type="text/javascript" src="/js/jquery-3.2.1.min.js")
     script(type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js")
     script(type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js")
+    script(type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async)
     script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js")
     script(type="text/javascript" src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js")
 
@@ -137,7 +138,7 @@ html(lang="en")
     script(type="text/javascript" src="/js/bootstrap.min.js")
     script(type="text/javascript" src="/js/mdb.min.js")
     
-    //-validatons
+    //-video
     script.
       window.onload = function() {
           // Video
@@ -156,8 +157,41 @@ html(lang="en")
               video.webkitRequestFullscreen(); // Chrome and Safari
           }
       });
+      
+      $("[type='number']").keypress(function (evt) {
+          evt.preventDefault();
+      });
 
-    
+    //-messages
+    script.
+      $(document).ready(function() {
+          $.urlParam = function(name){
+              var results = new RegExp('[\?&]' + name + '=([^]*)').exec(window.location.href);
+              if (results==null){
+                 return null;
+              }
+              else{
+                 return results[1] || 0;
+              }
+          }
+          
+          var id = $.urlParam('id');
+          
+          $.ajax({ 
+              type: "GET",
+              url: '/pll',
+              data: {id: id},
+              success: function(data){
+                  if($.trim(data.status) == 'completed') {
+                      alertify.success(data.charge);
+                  }
+                  if($.trim(data.status) == 'failed') {
+                      alertify.error(data.charge);
+                  }
+              }
+          });
+      });
+
     //-openpay
     script.
       $(document).ready(function() {
@@ -170,76 +204,77 @@ html(lang="en")
           $('#pay-button').on('click', function(event) {
               
               event.preventDefault();
-              OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);                
+              OpenPay.token.extractFormAndCreate('payment-form', sucess_callback, error_callback);                
           });
 
-          var sucess_callbak = function(response) {
-            var token_id = response.data.id;
-            $('#token_id').val(token_id);
+          var sucess_callback = function(response) {
+              var token_id = response.data.id;
+              $('#token_id').val(token_id);
 
-            var paymentForm = $("#payment-form");
-            var paymentformData = paymentForm.serialize();
-            $('#name_error').html( "" );
-            $('#lastname_error').html( "" );
-            $('#email_error').html( "" );
-            
-            $('#holder_name_error').html( "" );
-            $('#cvv2_error').html( "" );
-            $('#card_number_error').html( "" );
-            $('#expiration_month_error').html( "" );
-            $('#expiration_year_error').html( "" );
-            $('#amount_error').html( "" );
+              var paymentForm = $("#payment-form");
+              var paymentformData = paymentForm.serialize();
+              $('#name_error').html( "" );
+              $('#lastname_error').html( "" );
+              $('#email_error').html( "" );
+              
+              $('#holder_name_error').html( "" );
+              $('#cvv2_error').html( "" );
+              $('#card_number_error').html( "" );
+              $('#expiration_month_error').html( "" );
+              $('#expiration_year_error').html( "" );
+              $('#amount_error').html( "" );
 
-            var loader = $('#pay-button').find('#icon');
-            loader.removeClass('fa fa-flash ml-2').addClass('fa fa-refresh fa-spin');
-            $('#pay-button').attr('disabled','disabled');
+              var loader = $('#pay-button').find('#icon');
+              loader.removeClass('fa fa-flash ml-2').addClass('fa fa-refresh fa-spin');
+              $('#pay-button').attr('disabled','disabled');
 
-            $.ajax({
-                url: "/pll",
-                type: "POST",
-                data: paymentformData,
-                success: function(data) {
-                    console.log(data);
-                    if(data.errors_form) {
-                        if(data.errors_form.name)
-                            $( '#name_error' ).html(data.errors_form.name[0]);
-                        if(data.errors_form.lastname)
-                            $( '#lastname_error' ).html(data.errors_form.lastname[0]);
-                        if(data.errors_form.email)
-                            $( '#email_error' ).html(data.errors_form.email[0]);
-                        if(data.errors_form.holder_name)
-                            $( '#holder_name_error' ).html(data.errors_form.holder_name[0]);
-                        if(data.errors_form.cvv2)
-                            $( '#cvv2_error' ).html(data.errors_form.cvv2[0]);
-                        if(data.errors_form.card_number)
-                            $( '#card_number_error' ).html(data.errors_form.card_number[0]);
-                        if(data.errors_form.expiration_month)
-                            $( '#expiration_month_error' ).html(data.errors_form.expiration_month[0]);
-                        if(data.errors_form.expiration_year)
-                            $( '#expiration_year_error' ).html(data.errors_form.expiration_year[0]);
-                        if(data.errors_form.amount)
-                            $( '#amount_error' ).html(data.errors_form.amount[0]);
-                    }
-                    if(data.success) {
-                        alertify.success(data.success); //El mensaje de correcto
-                        $('#payment-form')[0].reset(); 
-                        $('#donation-modal').modal('hide');
-                    }
-                    else //Cualquier error
-                      alertify.error(data.error);
+              $.ajax({
+                  url: "/pll",
+                  type: "POST",
+                  data: paymentformData,
+                  success: function(data) {
+                      //console.log(data);
+                      if(data.errors_form) {
+                          if(data.errors_form.name)
+                              $( '#name_error' ).html(data.errors_form.name[0]);
+                          if(data.errors_form.lastname)
+                              $( '#lastname_error' ).html(data.errors_form.lastname[0]);
+                          if(data.errors_form.email)
+                              $( '#email_error' ).html(data.errors_form.email[0]);
+                          if(data.errors_form.holder_name)
+                              $( '#holder_name_error' ).html(data.errors_form.holder_name[0]);
+                          if(data.errors_form.cvv2)
+                              $( '#cvv2_error' ).html(data.errors_form.cvv2[0]);
+                          if(data.errors_form.card_number)
+                              $( '#card_number_error' ).html(data.errors_form.card_number[0]);
+                          if(data.errors_form.expiration_month)
+                              $( '#expiration_month_error' ).html(data.errors_form.expiration_month[0]);
+                          if(data.errors_form.expiration_year)
+                              $( '#expiration_year_error' ).html(data.errors_form.expiration_year[0]);
+                          if(data.errors_form.amount)
+                              $( '#amount_error' ).html(data.errors_form.amount[0]);
+                      }
+                      if(data.success) {
+                          $('#payment-form')[0].reset(); 
+                          $('#donation-modal').modal('hide');
+                          
+                          window.location.replace(data.success);
+                      }
+                      else //Cualquier error
+                        alertify.error(data.error);
 
+                      $("#pay-button").removeAttr('disabled');
+                      loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
+                  },
+                  error: function(data) { //solo de conectividad
+                    //console.log(data);
                     $("#pay-button").removeAttr('disabled');
                     loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
-                },
-                error: function(data) { //solo de conectividad
-                  console.log(data);
-                  $("#pay-button").removeAttr('disabled');
-                  loader.removeClass('fa fa-refresh fa-spin').addClass('fa fa-flash ml-2');
-                }
-            });
+                  }
+              });
           };
 
-          var error_callbak = function(response) {
+          var error_callback = function(response) {
               var desc = response.data.description != undefined ? response.data.description : response.message;
               alertify.error("ERROR [" + response.status + "]" + desc );
               $("#pay-button").prop("disabled", false);
